@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -10,10 +13,11 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainContext" prefHeight="704.0" prefWidth="1154.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TextEdiorFormController">
+<AnchorPane fx:id="mainContext" prefHeight="704.0" prefWidth="1334.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TextEdiorFormController">
    <children>
-      <TextArea fx:id="txtArea" layoutY="87.0" prefHeight="617.0" prefWidth="1154.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="87.0" />
+      <TextArea fx:id="txtArea" layoutY="119.0" prefHeight="543.0" prefWidth="1334.0" text="the The chamal the The the" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="119.0" />
       <MenuBar fx:id="menuBar" prefHeight="40.0" prefWidth="1154.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
@@ -27,10 +31,10 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
-              <MenuItem fx:id="menCut" mnemonicParsing="false" onAction="#menCutOnAction" text="Cut" />
-                  <MenuItem fx:id="menCopy" mnemonicParsing="false" onAction="#menCopyOnAction" text="Copy" />
-                  <MenuItem fx:id="menPase" mnemonicParsing="false" onAction="#menPasteOnAction" text="Paste" />
-                  <MenuItem fx:id="menSelectAll" mnemonicParsing="false" onAction="#menSelectAllOnAction" text="Select All" />
+              <MenuItem fx:id="menFind" mnemonicParsing="false" onAction="#menCutOnAction" text="Find" />
+                  <MenuItem fx:id="menFindAll" mnemonicParsing="false" onAction="#menCopyOnAction" text="FInd-All" />
+                  <MenuItem fx:id="menReplace" mnemonicParsing="false" onAction="#menPasteOnAction" text="Replace" />
+                  <MenuItem fx:id="menReplaceAll" mnemonicParsing="false" onAction="#menSelectAllOnAction" text="Replace-All" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
@@ -82,5 +86,32 @@
             <Image url="@assets/selection.png" />
          </image>
       </ImageView>
+      <JFXTextField fx:id="txtSearchText" labelFloat="true" layoutX="413.0" layoutY="44.0" prefHeight="40.0" prefWidth="200.0" promptText="Search Text" />
+      <Button fx:id="btnFindDown" layoutX="622.0" layoutY="43.0" mnemonicParsing="false" onAction="#btnFindDownOnAction" prefHeight="47.0" prefWidth="43.0" />
+      <ImageView fitHeight="26.0" fitWidth="24.0" layoutX="632.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/down-arrow.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnFindUp" layoutX="665.0" layoutY="43.0" mnemonicParsing="false" onAction="#btnFindUpOnAction" prefHeight="47.0" prefWidth="43.0" />
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="675.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/up-arrow.png" />
+         </image>
+      </ImageView>
+      <JFXToggleButton fx:id="btnRegex" layoutX="693.0" layoutY="37.0" onAction="#btnRegexOnAction" prefHeight="60.0" prefWidth="134.0" text="Regex" />
+      <JFXToggleButton fx:id="btnCaseSensitive" layoutX="796.0" layoutY="37.0" onAction="#btncaseSensitiveOnAction" prefHeight="60.0" prefWidth="178.0" text="Case-sensitive" />
+      <JFXTextField fx:id="txtReplaceText" labelFloat="true" layoutX="974.0" layoutY="44.0" prefHeight="40.0" prefWidth="200.0" promptText="Replace Text" />
+      <Button fx:id="btnReplace" layoutX="1199.0" layoutY="38.0" mnemonicParsing="false" onAction="#btnReplaceOnAction" prefHeight="26.0" prefWidth="117.0" text="Replace" />
+      <Button fx:id="btnReplaceAll" layoutX="1199.0" layoutY="66.0" mnemonicParsing="false" onAction="#btnReplaceAllOnaction" prefHeight="26.0" prefWidth="117.0" text="Replace-All" />
+      <Label layoutX="14.0" layoutY="674.0" text="Finding Count :" />
+      <Label layoutX="1105.0" layoutY="674.0" text="Total Word Count" />
+      <Label fx:id="lblFindCount" layoutX="123.0" layoutY="674.0" text="0" />
+      <Label fx:id="lblTotalWordCount" layoutX="1251.0" layoutY="675.0" text="0" />
+      <Button fx:id="btnFindAll" layoutX="622.0" layoutY="92.0" mnemonicParsing="false" onAction="#btnFindAllOnAction" prefHeight="26.0" prefWidth="86.0" text="Find All">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

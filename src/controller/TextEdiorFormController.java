@@ -1,5 +1,7 @@
 package controller;
 
+import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXToggleButton;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
@@ -10,6 +12,8 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class TextEdiorFormController {
 
@@ -17,9 +21,49 @@ public class TextEdiorFormController {
     public Button btnNewFile;
     public TextArea txtArea;
     public AnchorPane mainContext;
+    public JFXTextField txtSearchText;
+    public Button btnFindDown;
+    public Button btnFindUp;
+    public JFXToggleButton btnRegex;
+    public JFXToggleButton btnCaseSensitive;
+    public JFXTextField txtReplaceText;
+    public Button btnReplace;
+    public Button btnReplaceAll;
+    public Label lblFindCount;
+    public Label lblTotalWordCount;
     private String filePath = "";  //stores opened file path
     Stage stage;
+    private boolean textChanged = false;
+    private Matcher matcher;
+    private Matcher findAllMatcher;
+    private int prevSearchStartindex=0;
+    private int prevSearchEndIndex=0;
+    private int lastSearchIndex=0;
+    private  int startSearchIndex=0;
+    private int selectedCount=0;
 
+
+
+
+    public void initialize() {
+
+
+        txtArea.textProperty().addListener((observable, oldValue, newValue) -> {
+            textChanged = true;
+
+            Pattern pattern = Pattern.compile("\\s");
+            Matcher  matcher = pattern.matcher(txtArea.getText());
+            int count = 0;
+            while (matcher.find()) {
+                count++;
+            }
+            lblTotalWordCount.setText(String.valueOf(count));
+        });
+
+
+
+
+    }
 
     public void btnNewfileOnAction(ActionEvent actionEvent) {
         txtArea.clear();
@@ -210,4 +254,104 @@ public class TextEdiorFormController {
     }
 
 
+    public void btnFindDownOnAction(ActionEvent actionEvent) {
+        txtArea.deselect();
+        if (textChanged) {
+            int flags=0;
+            if(!btnRegex.isSelected() )flags=flags| Pattern.LITERAL;   //OR gate used in bit masking
+            if(!btnCaseSensitive.isSelected() )flags=flags|Pattern.CASE_INSENSITIVE;
+
+
+
+            matcher= Pattern.compile(txtSearchText.getText(), flags).matcher(txtArea.getText());
+            textChanged = false;
+        }
+        if (matcher.find()) {   //stroing last index
+            int start = matcher.start();   //staritng index of the word
+            int end =matcher.end();
+            lastSearchIndex = end;
+            startSearchIndex=start;
+            prevSearchStartindex-=start;
+            prevSearchEndIndex-=end;
+            System.out.println("New Start inded"+start);                    //to find
+            System.out.println("New end index"+end);
+            System.out.println("prev Start inded"+prevSearchStartindex);                    //to find
+            System.out.println("prev end index"+prevSearchEndIndex);
+            txtArea.selectRange(start, end);
+        }
+
+    }
+
+    public void btnFindUpOnAction(ActionEvent actionEvent) {
+       txtArea.deselect();
+        if (textChanged) {
+            int flags=0;
+            if(!btnRegex.isSelected() )flags=flags| Pattern.LITERAL;   //OR gate used in bit masking
+            if(!btnCaseSensitive.isSelected() )flags=flags|Pattern.CASE_INSENSITIVE;
+
+
+
+            matcher= Pattern.compile(txtSearchText.getText(), flags).matcher(txtArea.getText());
+            textChanged = false;
+        }
+        if (matcher.find()) {   //stroing last index
+            int start = matcher.start();   //staritng index of the word
+            int end = matcher.end();
+
+            lastSearchIndex = end;
+            System.out.println(start);                    //to find
+            txtArea.selectRange(start,end);
+        }
+
+    }
+
+    public void btnRegexOnAction(ActionEvent actionEvent) {
+              //calling the fire method action listener
+    }
+
+    public void btncaseSensitiveOnAction(ActionEvent actionEvent) {
+        textChanged = true;
+        btnFindUp.fire();
+    }
+
+    public void btnReplaceOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnReplaceAllOnaction(ActionEvent actionEvent) {   //replace all
+        if(matcher==null){
+            new Alert(Alert.AlertType.ERROR,"Please Insert a search Text First").show();
+        }else if(txtReplaceText.getText().isEmpty()){
+            new Alert(Alert.AlertType.ERROR,"Please add the text to be replaced with!").show();
+        }
+        else{
+            txtArea.setText(matcher.replaceAll(txtReplaceText.getText()));
+            new Alert(Alert.AlertType.INFORMATION,"Replace Succesfully").show();
+        }
+    }
+
+    public void btnFindAllOnAction(ActionEvent actionEvent) {
+
+//       // txtArea.deselect();
+//        if(matcher==null){
+//
+//
+//        }else {
+//            if(matcher.find()){
+//
+//
+//            }
+//
+//           // txtArea.setText(matcher.replaceAll("hi"));
+//        }
+
+
+        Pattern pattern = Pattern.compile(txtSearchText.getText(),Pattern.CASE_INSENSITIVE);
+        Matcher  matcher = pattern.matcher(txtArea.getText());
+        int count = 0;
+        while (matcher.find()) {
+            count++;
+        }
+
+        lblFindCount.setText(String.valueOf(count));
+    }
 }
