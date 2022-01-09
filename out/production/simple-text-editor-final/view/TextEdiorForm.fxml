@@ -17,7 +17,7 @@
 
 <AnchorPane fx:id="mainContext" prefHeight="704.0" prefWidth="1334.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TextEdiorFormController">
    <children>
-      <TextArea fx:id="txtArea" layoutY="119.0" prefHeight="543.0" prefWidth="1334.0" text="the The chamal the The the" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="119.0">
+      <TextArea fx:id="txtArea" layoutY="119.0" prefHeight="543.0" prefWidth="1334.0" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="119.0">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></TextArea>
@@ -102,8 +102,8 @@
             <Image url="@assets/up-arrow.png" />
          </image>
       </ImageView>
-      <JFXToggleButton fx:id="btnRegex" layoutX="693.0" layoutY="37.0" onAction="#btnRegexOnAction" prefHeight="60.0" prefWidth="134.0" text="Regex" />
-      <JFXToggleButton fx:id="btnCaseSensitive" layoutX="796.0" layoutY="37.0" onAction="#btncaseSensitiveOnAction" prefHeight="60.0" prefWidth="178.0" text="Case-sensitive" />
+      <JFXToggleButton fx:id="btnRegex" layoutX="710.0" layoutY="37.0" onAction="#btnRegexOnAction" prefHeight="60.0" prefWidth="117.0" text="Regex" />
+      <JFXToggleButton fx:id="btnCaseSensitive" layoutX="804.0" layoutY="37.0" onAction="#btncaseSensitiveOnAction" prefHeight="60.0" prefWidth="178.0" text="Case-sensitive" />
       <JFXTextField fx:id="txtReplaceText" labelFloat="true" layoutX="974.0" layoutY="44.0" prefHeight="40.0" prefWidth="200.0" promptText="Replace Text" />
       <Button fx:id="btnReplace" layoutX="1204.0" layoutY="52.0" mnemonicParsing="false" onAction="#btnReplaceOnAction" prefHeight="26.0" prefWidth="117.0" style="-fx-background-color: #d64161;" text="Replace" textFill="#fffbfb" />
       <Button fx:id="btnReplaceAll" layoutX="1204.0" layoutY="80.0" mnemonicParsing="false" onAction="#btnReplaceAllOnaction" prefHeight="26.0" prefWidth="117.0" style="-fx-background-color: #6b5b95;" text="Replace-All" textFill="WHITE" />
