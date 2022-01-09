@@ -17,7 +17,10 @@
 
 <AnchorPane fx:id="mainContext" prefHeight="704.0" prefWidth="1334.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TextEdiorFormController">
    <children>
-      <TextArea fx:id="txtArea" layoutY="119.0" prefHeight="543.0" prefWidth="1334.0" text="the The chamal the The the" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="119.0" />
+      <TextArea fx:id="txtArea" layoutY="119.0" prefHeight="543.0" prefWidth="1334.0" text="the The chamal the The the" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="119.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></TextArea>
       <MenuBar fx:id="menuBar" prefHeight="40.0" prefWidth="1154.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
@@ -31,15 +34,15 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
-              <MenuItem fx:id="menFind" mnemonicParsing="false" onAction="#menCutOnAction" text="Find" />
-                  <MenuItem fx:id="menFindAll" mnemonicParsing="false" onAction="#menCopyOnAction" text="FInd-All" />
-                  <MenuItem fx:id="menReplace" mnemonicParsing="false" onAction="#menPasteOnAction" text="Replace" />
-                  <MenuItem fx:id="menReplaceAll" mnemonicParsing="false" onAction="#menSelectAllOnAction" text="Replace-All" />
+              <MenuItem fx:id="menFind" mnemonicParsing="false" onAction="#menFindOnAction" text="Find" />
+                  <MenuItem fx:id="menFindAll" mnemonicParsing="false" onAction="#menFindAllOnAction" text="FInd-All" />
+                  <MenuItem fx:id="menReplace" mnemonicParsing="false" onAction="#menReplaceOnAction" text="Replace" />
+                  <MenuItem fx:id="menReplaceAll" mnemonicParsing="false" onAction="#menReplaceAllOnaction" text="Replace-All" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem fx:id="menabout" mnemonicParsing="false" onAction="#menAboutOnAction" text="About" />
             </items>
           </Menu>
         </menus>
@@ -102,12 +105,24 @@
       <JFXToggleButton fx:id="btnRegex" layoutX="693.0" layoutY="37.0" onAction="#btnRegexOnAction" prefHeight="60.0" prefWidth="134.0" text="Regex" />
       <JFXToggleButton fx:id="btnCaseSensitive" layoutX="796.0" layoutY="37.0" onAction="#btncaseSensitiveOnAction" prefHeight="60.0" prefWidth="178.0" text="Case-sensitive" />
       <JFXTextField fx:id="txtReplaceText" labelFloat="true" layoutX="974.0" layoutY="44.0" prefHeight="40.0" prefWidth="200.0" promptText="Replace Text" />
-      <Button fx:id="btnReplace" layoutX="1199.0" layoutY="38.0" mnemonicParsing="false" onAction="#btnReplaceOnAction" prefHeight="26.0" prefWidth="117.0" text="Replace" />
-      <Button fx:id="btnReplaceAll" layoutX="1199.0" layoutY="66.0" mnemonicParsing="false" onAction="#btnReplaceAllOnaction" prefHeight="26.0" prefWidth="117.0" text="Replace-All" />
-      <Label layoutX="14.0" layoutY="674.0" text="Finding Count :" />
-      <Label layoutX="1105.0" layoutY="674.0" text="Total Word Count" />
-      <Label fx:id="lblFindCount" layoutX="123.0" layoutY="674.0" text="0" />
-      <Label fx:id="lblTotalWordCount" layoutX="1251.0" layoutY="675.0" text="0" />
+      <Button fx:id="btnReplace" layoutX="1204.0" layoutY="52.0" mnemonicParsing="false" onAction="#btnReplaceOnAction" prefHeight="26.0" prefWidth="117.0" style="-fx-background-color: #d64161;" text="Replace" textFill="#fffbfb" />
+      <Button fx:id="btnReplaceAll" layoutX="1204.0" layoutY="80.0" mnemonicParsing="false" onAction="#btnReplaceAllOnaction" prefHeight="26.0" prefWidth="117.0" style="-fx-background-color: #6b5b95;" text="Replace-All" textFill="WHITE" />
+      <Label layoutX="14.0" layoutY="674.0" text="Finding All Count :">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="1088.0" layoutY="674.0" text="Total Word Count:">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label fx:id="lblFindCount" layoutX="179.0" layoutY="674.0" text="0">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font></Label>
+      <Label fx:id="lblTotalWordCount" layoutX="1251.0" layoutY="675.0" text="0">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font></Label>
       <Button fx:id="btnFindAll" layoutX="622.0" layoutY="92.0" mnemonicParsing="false" onAction="#btnFindAllOnAction" prefHeight="26.0" prefWidth="86.0" text="Find All">
          <font>
             <Font name="System Bold" size="13.0" />
