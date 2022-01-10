@@ -8,10 +8,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="767.0" prefWidth="917.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AboutusController">
+<AnchorPane prefHeight="593.0" prefWidth="598.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AboutusController">
    <children>
-      <BorderPane layoutX="5.0" layoutY="4.0" prefHeight="64.0" prefWidth="911.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="1.0">
+      <BorderPane layoutX="100.0" layoutY="22.0" prefHeight="64.0" prefWidth="713.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="99.0">
          <center>
             <Label text="About" BorderPane.alignment="CENTER">
                <font>
@@ -20,16 +19,16 @@
             </Label>
          </center>
       </BorderPane>
-      <ImageView fitHeight="216.0" fitWidth="218.0" layoutX="353.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="216.0" fitWidth="218.0" layoutX="191.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/text.png" />
          </image>
       </ImageView>
-      <Text layoutX="235.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text Editor (V.1.0) Developed by Chamal Sanjana Peiris" wrappingWidth="446.7294921875" />
-      <Text layoutX="235.0" layoutY="414.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Licensed Under MIT Licesne" wrappingWidth="446.7294921875" />
-      <Text layoutX="235.0" layoutY="449.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modification and Redistribution is allowed by the creater" wrappingWidth="446.7294921875" />
-      <Text layoutX="235.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" text="For More Information, please reffer the README File" wrappingWidth="446.7294921875" />
-      <Text layoutX="235.0" layoutY="508.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Licensed Under MIT Licesne" wrappingWidth="446.7294921875" />
-      <Text fill="#3a21c9" layoutX="235.0" layoutY="541.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Copyright &amp;copy; 2022 Text Editor Application. All rights reserved." wrappingWidth="446.7294921875" />
+      <Text layoutX="98.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text Editor (V.1.0) Developed by Chamal Sanjana Peiris" wrappingWidth="446.7294921875" />
+      <Text layoutX="98.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Licensed Under MIT Licesne" wrappingWidth="446.7294921875" />
+      <Text layoutX="98.0" layoutY="433.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modification and Redistribution is allowed by the creater" wrappingWidth="446.7294921875" />
+      <Text layoutX="98.0" layoutY="461.0" strokeType="OUTSIDE" strokeWidth="0.0" text="For More Information, please reffer the README File" wrappingWidth="446.7294921875" />
+      <Text layoutX="98.0" layoutY="492.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Licensed Under MIT Licesne" wrappingWidth="446.7294921875" />
+      <Text fill="#3a21c9" layoutX="98.0" layoutY="525.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Copyright &amp;copy; 2022 Text Editor Application. All rights reserved." wrappingWidth="446.7294921875" />
    </children>
 </AnchorPane>

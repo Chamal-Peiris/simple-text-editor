@@ -46,7 +46,6 @@ public class TextEdiorFormController {
     Stage stage;
     private boolean textChanged = false;
     private Matcher matcher;
-    private Matcher findAllMatcher;
     private final List<Index> searchList = new ArrayList();
     private int searchCount = 0;
 
@@ -69,10 +68,7 @@ public class TextEdiorFormController {
             if (txtSearchText.getText().isEmpty()) {
                 lblFindCount.setText("0");
             }
-
-
         });
-
 
     }
 
@@ -269,8 +265,6 @@ public class TextEdiorFormController {
     public void btnFindDownOnAction(ActionEvent actionEvent) {
         makeMatcher();
         searchCount++;
-
-
     }
 
     public void btnFindUpOnAction(ActionEvent actionEvent) {
